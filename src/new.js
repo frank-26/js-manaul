@@ -2,12 +2,15 @@ function New() {
     const [Func,...args] = [...arguments]
     const instance = {};
     const result = Func.apply(instance, args);
+
     if (Func.prototype !== null) {
         instance.__proto__ = Func.prototype;
     }
+    // 如果 Func 调用后返回的是对象，则直接返回调用结果
     if ((typeof result === "object" || typeof result === "function") && result !== null) {
         return result;
     }
+    // 否则返回 instance
     return instance;
 }
 function A(a,b){return a+b}
