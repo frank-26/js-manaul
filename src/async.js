@@ -4,9 +4,13 @@ async function test1() {
   // 被 JS 引擎转换成一个 Promise，JS 引擎将暂停当前协程的运行，把线程的执行权交给父协程，
   //回到父协程中，父协程的第一件事情就是对await返回的Promise调用then, 来监听这个 Promise 的状态改变 
   let x = await 200 
+  
   console.log(x)//2.2 
   console.log(201) // 2.3
 }
+
+
+
 console.log(0) // 1. 同步
 test1() // 2. 同步
 console.log(300)// 2.1
@@ -18,7 +22,8 @@ console.log(300)// 2.1
   // 2. 把 value 值传递给 test 协程
 //})
 async function test() {
-	let arr = [4, 2, 1]
+  let arr = [4, 2, 1]
+  console.log('arr: ', arr);
 	arr.forEach(async item => {
 		const res = await handle(item)
 		console.log(res)

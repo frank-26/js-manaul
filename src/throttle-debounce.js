@@ -5,7 +5,8 @@
 /*
  * 使用场景：
 1. 按钮提交场景：防止多次提交按钮，只执行最后提交的一次
-2. 服务端验证场景：表单验证需要服务端配合，只执行一段连续的输入事件的最后一次，还有搜索联想词功能类似
+2. 服务端验证场景：表单验证需要服务端配合，只执行一段连续的输入事件的最后一次，
+3. 搜索联想词功能类似
 **/
 function debounce(fn, delay){
     let timer = null;
@@ -45,8 +46,8 @@ function throttle2(fn, wait) {
 	    const args = arguments;
 		const now = new Date();
 		if (now - prev > wait) {
-			fn.apply(this, args);
-			prev = new Date();
+			fn.apply(this, ...args);
+			prev = new Date();// 注意别忘记了更新
 		}
     }
 }
