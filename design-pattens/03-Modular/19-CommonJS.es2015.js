@@ -1,11 +1,19 @@
 //*******************************************************//
-// Getting Started
-//*******************************************************//
-// [ES2015+] We used new keyword const for immutable constant declaration
-// [ES2015+] We used new arrow function syntax
+// 每个 Node 模块都打包在类似如下的函数包装程序中
+/*
+(function(exports, require, module, __filename, __dirname) {
+    // Module code actually lives in here
+});
 
-//********************** Snippet 1 **********************//
-// package/lib is a dependency we require
+1. __filename，即模块的 JavaScript 源文件的标准名称，此名称由 Node 随其他几个参数一起传递到函数包装程序：
+2. exports - module.exports 的简短表示形式
+3. require - 大家很熟悉的用于包含其他模块的函数
+4. module - 对当前模块的引用
+5. __dirname - 模块的 JavaScript 源文件所在目录的完整路径
+*/
+//*******************************************************//
+
+
 const lib = require('package/lib');
 
 // behaviour for our module

@@ -246,3 +246,36 @@
       })
     }
   }
+
+
+  // NOTE： 获取成功及失败请求的处理
+
+  function getData(api){
+    return new Promise((resolve,reject) => {
+      setTimeout(() => {
+        var ok = Math.random() > 0.5  // 模拟请求成功或失败
+        if(ok)
+          resolve('get ' + api + ' data')
+        else{
+          resolve('error')
+        }
+      },200)
+    })
+  }
+  // 可以根据需要处理所有结果
+  function getDatas(arr){
+    var promises = arr.map(item => getData(item))
+    return Promise.all(promises).then(values => {
+      values.map((v,index) => {
+        if(v == 'error'){
+          console.log('第' + (index+1) + '个请求失败')
+        }else{
+          console.log(v)
+        }
+      })
+    }).catch(error => {
+      console.log(error)
+    })
+  }
+  
+  getDatas(['./api1','./api2','./api3','./api4'])

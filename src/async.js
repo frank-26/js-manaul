@@ -1,5 +1,5 @@
 // http://es6.ruanyifeng.com/#docs/async#%E5%AE%9E%E4%BE%8B%EF%BC%9A%E6%8C%89%E9%A1%BA%E5%BA%8F%E5%AE%8C%E6%88%90%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C
-
+// async 函数可以保留运行堆栈
 /*async 函数的实现原理：
 将 Generator 函数和自动执行器，包装在一个函数里。
 */ 
