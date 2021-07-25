@@ -1,3 +1,4 @@
+// 补气参数才能正常调用
 function curry(fn, args=[]) {
     return function(){
         newArgs = [...args,...arguments];

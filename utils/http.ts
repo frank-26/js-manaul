@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { message } from 'antd';
-import { userMobx } from 'models/user/user.mobx';
+// import { userMobx } from 'models/user/user.mobx';
 
 const defaultHeader = {
   'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ export default function fetch<T>({
       .catch(err => {
         if (err.response && err.response.status === 401) {
           message.info('用户权限过期，需重新认证');
-          userMobx.reAuth(endpoint);
+          // userMobx.reAuth(endpoint);
         } else {
           let errorMessage = err.message;
           if (err.response) {
