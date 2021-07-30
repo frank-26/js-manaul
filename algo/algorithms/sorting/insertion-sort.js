@@ -6,8 +6,7 @@ export const insertionSort = (array, compareFn = defaultCompare) => {
   for (let i = 1; i < length; i++) {
     let j = i;
     temp = array[i];
-    // console.log('to be inserted ' + temp);
-    // 如果比较大小，小则交换位置
+    // 如果前一项小，则交换位置
     while (j > 0 && compareFn(array[j - 1], temp) === Compare.BIGGER_THAN) {
       // console.log('shift ' + array[j - 1]);
       array[j] = array[j - 1];
